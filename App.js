@@ -7,6 +7,7 @@ import { Provider } from "react-redux";
 import store from "./redux/reducers";
 import { checkForExpiredToken } from "./redux/actions";
 import SignupForm from "./components/SignupForm";
+import Homepage from "./components/Homepage/Homepage";
 
 store.dispatch(checkForExpiredToken());
 export default class App extends React.Component {
@@ -29,12 +30,14 @@ export default class App extends React.Component {
       return <AppLoading />;
     }
     return (
-      <Provider store={store}>
-        <LoginForm />
+      <Homepage/>
+      // {/* <Provider store={store}>
+       
+        // <LoginForm />
 
-      {/* will be removed after navigation */}
-        <SignupForm/> 
-      </Provider>
+      // {/* will be removed after navigation */}
+        // <SignupForm/> 
+      // </Provider> */}
     );
   }
  }
