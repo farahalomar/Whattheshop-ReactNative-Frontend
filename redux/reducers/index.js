@@ -1,15 +1,9 @@
-import { createStore, combineReducers, applyMiddleware } from "redux";
-import thunk from "redux-thunk";
-import { composeWithDevTools } from "redux-devtools-extension";
+import { combineReducers } from "redux";
+
 import authReducer from "./authReducer";
-// import { checkForExpiredToken } from "./redux/actions";
-const middlewares = [thunk];
-const enhancer = composeWithDevTools({
- // Options: https://github.com/jhen0409/react-native-debugger#options
-})(applyMiddleware(...middlewares));
-const rootReducer = combineReducers({
- rootAuth: authReducer
+import mealsReducer from "./mealsReducer";
+
+export default combineReducers({
+  authReducer: authReducer,
+  mealsReducer: mealsReducer
 });
-const store = createStore(rootReducer, enhancer);
-// store.dispatch(checkForExpiredToken());
-export default store;
