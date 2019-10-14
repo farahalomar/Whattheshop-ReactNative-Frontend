@@ -1,14 +1,15 @@
-import LoginForm from "./components/LoginForm";
 import React from "react";
 import { AppLoading } from "expo";
 import * as Font from "expo-font";
 import { Ionicons } from "@expo/vector-icons";
 import { Provider } from "react-redux";
-import store from "./redux/reducers";
+import store from "./redux/index";
 import { checkForExpiredToken } from "./redux/actions";
-import SignupForm from "./components/SignupForm";
+import AppContainer from "./Navigation/index";
+//import LoginForm from "./components/LoginForm";
+//import SignupForm from "./components/SignupForm";
 
-store.dispatch(checkForExpiredToken());
+//store.dispatch(checkForExpiredToken());
 export default class App extends React.Component {
   constructor(props) {
     super(props);
@@ -30,12 +31,8 @@ export default class App extends React.Component {
     }
     return (
       <Provider store={store}>
-        <LoginForm />
-
-      {/* will be removed after navigation */}
-        <SignupForm/> 
+        <AppContainer />
       </Provider>
     );
   }
- }
- 
+}
