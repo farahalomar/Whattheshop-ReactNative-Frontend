@@ -21,13 +21,20 @@ class HomePage extends Component {
   render() {
   return (
     <Container style={styles.transparent}>
-      <View style={styles.overlay}>
+      <View>
       <Button
           full
           success
           //onPress={() => alert("please!!")}
-          onPress={() => this.props.navigation.replace("MealScreen")}
+          onPress={() => this.props.navigation.push("MealScreen")}
         ><Text>Meals</Text></Button>
+          <Button
+          full
+          warning
+          //onPress={() => alert("please!!")}
+          onPress={() => this.props.navigation.push("LoginScreen")}
+        ><Text>Register</Text></Button>
+
       </View>
       <Header style={styles.transparent} />
       

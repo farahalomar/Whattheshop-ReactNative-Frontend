@@ -46,7 +46,6 @@ class MealList extends Component {
           </Button>
         </Header>
         <View>{mealCards}</View>
-        <Text>Hi</Text>
       </Container>
     );
   }

@@ -59,6 +59,7 @@ class LoginForm extends Component {
            <Button onPress={this.handleSubmitLogin}>
              <Text>Login</Text>
            </Button>
+           <Text onPress={() => this.props.navigation.push("SignupForm")}>Signup</Text>
            
          </Form>
        </Content>

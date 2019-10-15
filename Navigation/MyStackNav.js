@@ -5,11 +5,13 @@ import SignupForm from "../components/SignupForm"; //Signup
 
 import MealList from "../components/MealList";
 import HomePage from "../components/HomePage";
+import MealDetail from "../components/MealDetail";
 const MyStackNav = createStackNavigator(
   {
     LoginScreen: LoginForm,
     SignupForm: SignupForm,
     MealScreen: MealList,
+    DetailScreen: MealDetail,
     HomeScreen: HomePage
   },
   {
