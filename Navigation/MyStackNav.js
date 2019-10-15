@@ -4,15 +4,16 @@ import LoginForm from "../components/LoginForm"; //Login
 import SignupForm from "../components/SignupForm"; //Signup
 
 import MealList from "../components/MealList";
-
+import HomePage from "../components/HomePage";
 const MyStackNav = createStackNavigator(
   {
     LoginScreen: LoginForm,
     SignupForm: SignupForm,
-    MealScreen: MealList
+    MealScreen: MealList,
+    HomeScreen: HomePage
   },
   {
-    initialRouteName: "MealScreen",
+    initialRouteName: "HomeScreen",
 
     defaultNavigationOptions: {
       headerStyle: {
