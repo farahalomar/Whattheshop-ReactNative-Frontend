@@ -24,12 +24,11 @@ import { View } from "react-native";
 import MealCard from "./MealCard";
 
 class MealList extends Component {
-  componentDidMount() {
-    this.props.fetchMeals();
-  }
-  //   state = {
-  //     name: "" //channel name
-  //   };
+
+  // componentDidMount() {
+  //   this.props.fetchMeals();
+  // }
+
 
   render() {
     const mealCards = this.props.meals.map(meal => {

@@ -13,7 +13,7 @@ const MyStackNav = createStackNavigator(
     HomeScreen: HomePage
   },
   {
-    initialRouteName: "HomeScreen",
+    initialRouteName: "MealScreen",
 
     defaultNavigationOptions: {
       headerStyle: {
