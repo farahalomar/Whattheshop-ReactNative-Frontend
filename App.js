@@ -8,6 +8,7 @@ import { checkForExpiredToken } from "./redux/actions";
 import AppContainer from "./Navigation/index";
 //import LoginForm from "./components/LoginForm";
 //import SignupForm from "./components/SignupForm";
+import HomePage from "./components/HomePage/index";
 
 //store.dispatch(checkForExpiredToken());
 export default class App extends React.Component {
