@@ -4,11 +4,21 @@ import { View, Text } from "react-native";
 // NativeBase Components
 import { Container, Header, Button } from "native-base";
 import AppContainer from "../../Navigation/index";
+import { connect } from "react-redux";
 
 // Style
 import styles from "./styles";
 
-const HomePage = (props) => {
+//Action
+import { fetchMeals } from "../../redux/actions/mealsAction";
+
+
+class HomePage extends Component {
+
+  componentDidMount(){
+    this.props.fetchMeals();
+  }
+  render() {
   return (
     <Container style={styles.transparent}>
       <View style={styles.overlay}>
@@ -24,5 +34,12 @@ const HomePage = (props) => {
     </Container>
   );
 };
+}
 
-export default HomePage;
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchMeals: () => dispatch(fetchMeals())
+  };
+};
+
+export default connect(null, mapDispatchToProps)(HomePage);
