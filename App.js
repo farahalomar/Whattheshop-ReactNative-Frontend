@@ -9,8 +9,9 @@ import AppContainer from "./Navigation/index";
 //import LoginForm from "./components/LoginForm";
 //import SignupForm from "./components/SignupForm";
 import HomePage from "./components/HomePage/index";
-store.dispatch(fetchMeals())
+store.dispatch(fetchMeals());
 //store.dispatch(checkForExpiredToken());
+
 export default class App extends React.Component {
   constructor(props) {
     super(props);

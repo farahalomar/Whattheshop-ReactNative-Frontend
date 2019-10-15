@@ -1,6 +1,4 @@
 import axios from "axios";
-//import jwt_decode from "jwt-decode";
-//import { AsyncStorage } from "react-native";
 import * as actionTypes from "./types";
 
 export const fetchMeals = () => {
@@ -16,6 +14,22 @@ export const fetchMeals = () => {
   };
 };
 
-// export const setCoffeeShopsLoading = () => ({
-//   type: actionTypes.COFFEESHOPS_LOADING
-// });
+export const addItemToCart = item => {
+  return {
+    type: actionTypes.ADD_ITEM,
+    payload: item
+  };
+};
+
+export const removeItemFromCart = item => {
+  return {
+    type: actionTypes.REMOVE_ITEM,
+    payload: item
+  };
+};
+
+export const checkoutCart = () => {
+  return {
+    type: actionTypes.CHECKOUT
+  };
+};
