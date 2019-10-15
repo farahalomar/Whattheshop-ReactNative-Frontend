@@ -7,7 +7,7 @@ export const fetchMeals = () => {
   return async dispatch => {
     try {
       //dispatch(setChLoading());
-      const res = await axios.get("http://c4dd8fib.ngrok.io:8001/api/meals/");
+      const res = await axios.get("http://127.0.0.1:8000/api/meals/");
       const meals = res.data;
       dispatch({ type: actionTypes.FETCH_MEALS, payload: meals });
     } catch (err) {

@@ -26,7 +26,7 @@ class HomePage extends Component {
           full
           success
           //onPress={() => alert("please!!")}
-          onPress={() => props.navigation.replace("MealScreen")}
+          onPress={() => this.props.navigation.replace("MealScreen")}
         ><Text>Meals</Text></Button>
       </View>
       <Header style={styles.transparent} />

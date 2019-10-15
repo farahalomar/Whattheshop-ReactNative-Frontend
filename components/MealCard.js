@@ -20,7 +20,7 @@ class MealCard extends Component {
   render() {
     const { meal } = this.props;
     return (
-      <Container>
+
         <ListItem button>
           {/* <Card style={styles.transparent}>
             <CardItem style={styles.transparent}>
@@ -33,7 +33,7 @@ class MealCard extends Component {
             </CardItem>
           </Card> */}
         </ListItem>
-      </Container>
+
     );
   }
 }

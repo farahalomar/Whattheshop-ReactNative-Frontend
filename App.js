@@ -4,12 +4,12 @@ import * as Font from "expo-font";
 import { Ionicons } from "@expo/vector-icons";
 import { Provider } from "react-redux";
 import store from "./redux/index";
-import { checkForExpiredToken } from "./redux/actions";
+import { checkForExpiredToken, fetchMeals } from "./redux/actions";
 import AppContainer from "./Navigation/index";
 //import LoginForm from "./components/LoginForm";
 //import SignupForm from "./components/SignupForm";
 import HomePage from "./components/HomePage/index";
-
+store.dispatch(fetchMeals())
 //store.dispatch(checkForExpiredToken());
 export default class App extends React.Component {
   constructor(props) {
