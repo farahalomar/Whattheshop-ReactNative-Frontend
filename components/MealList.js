@@ -34,6 +34,7 @@ class MealList extends Component {
     const mealCards = this.props.meals.map(meal => {
       return <MealCard meal={meal} />;
     });
+    console.log("in list", this.props.meals)
 
     return (
       <Container>
