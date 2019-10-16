@@ -6,44 +6,35 @@ import { connect } from "react-redux";
 import { fetchMeals } from "../redux/actions/mealsAction";
 
 //NativeBase Components
-import {
-  Text,
-  Left,
-  Body,
-  Right,
-  Button,
-  ListItem,
-  Icon,
-  Header,
-  Title,
-  Container
-} from "native-base";
+import { Button, Icon, Header, Title, Container } from "native-base";
 import { View } from "react-native";
 
 //Components
 import MealCard from "./MealCard";
 
-class MealList extends Component {
+// Cart :
+import CartButton from "./CartButton";
 
+class MealList extends Component {
   // componentDidMount() {
   //   this.props.fetchMeals();
   // }
 
+  static navigationOptions = {
+    title: "Meal List",
+    headerRight: <CartButton />
+  };
 
   render() {
     const mealCards = this.props.meals.map(meal => {
       return <MealCard meal={meal} />;
     });
-    console.log("in list", this.props.meals)
+    console.log("in list", this.props.meals);
 
     return (
       <Container>
         <Header>
           <Title>Meals List</Title>
-
-          <Button transparent>
-            <Icon name="pluscircleo" type="AntDesign" />
-          </Button>
         </Header>
         <View>{mealCards}</View>
       </Container>

@@ -1,18 +1,25 @@
 import { createStackNavigator } from "react-navigation-stack";
 
+// Authentication
 import LoginForm from "../components/LoginForm"; //Login
 import SignupForm from "../components/SignupForm"; //Signup
 
+// Meals
 import MealList from "../components/MealList";
-import HomePage from "../components/HomePage";
 import MealDetail from "../components/MealDetail";
+
+// Components
+import HomePage from "../components/HomePage";
+import MealCart from "../components/MealCart";
+
 const MyStackNav = createStackNavigator(
   {
     LoginScreen: LoginForm,
     SignupForm: SignupForm,
     MealScreen: MealList,
     DetailScreen: MealDetail,
-    HomeScreen: HomePage
+    HomeScreen: HomePage,
+    CartScreen: MealCart
   },
   {
     initialRouteName: "HomeScreen",
