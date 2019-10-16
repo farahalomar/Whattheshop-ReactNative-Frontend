@@ -35,10 +35,6 @@ class MealList extends Component {
       <Container>
         <Header>
           <Title>Meals List</Title>
-
-          <Button transparent>
-            <Icon name="pluscircleo" type="AntDesign" />
-          </Button>
         </Header>
         <View>{mealCards}</View>
       </Container>

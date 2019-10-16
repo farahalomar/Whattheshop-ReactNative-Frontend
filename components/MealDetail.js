@@ -1,31 +1,31 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-//import * as actionCreators from "../redux/actions";
+import * as actionCreators from "../redux/actions";
 //import { withNavigation } from "react-navigation";
 
 //NativeBase Components
 import {
   Text,
   Left,
-  Body,
-  Right,
   Button,
-  ListItem,
-  Icon,
   Container,
   Card,
   CardItem,
-  Thumbnail,
-  Content
+  Thumbnail
 } from "native-base";
-import { View } from "react-native";
+import CartButton from "./CartButton";
 
-class MealCard extends Component {
+class MealDetail extends Component {
+  handleAddItem = () => {
+    this.props.addItemToCart(this.props.navigation.getParam("meal"));
+  };
+  static navigationOptions = {
+    title: "Meal List",
+    headerRight: <CartButton />
+  };
   render() {
-    //const mealID = this.props.navigation.getParam("mealID");
-    //const meal = meals.find(meal => mealID === meal.id);
-    //const { meal } = this.props;
     const meal = this.props.navigation.getParam("meal");
+    console.log("meal: ", meal);
     return (
       <Container>
         <Card>
@@ -39,6 +39,9 @@ class MealCard extends Component {
               <Text>Description: {meal.description}</Text>
             </Left>
           </CardItem>
+          <Button full danger onPress={this.handleAddItem}>
+            <Text>Add to cart</Text>
+          </Button>
         </Card>
       </Container>
     );
@@ -50,4 +53,13 @@ const mapStateToProps = state => {
     meals: state.mealsReducer.meals
   };
 };
-export default connect(mapStateToProps)(MealCard);
+
+const mapDispatchToProps = dispatch => {
+  return {
+    addItemToCart: item => dispatch(actionCreators.addItemToCart(item))
+  };
+};
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(MealDetail);

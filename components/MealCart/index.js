@@ -22,6 +22,14 @@ class MealCart extends Component {
       <List>
         {cartItems}
 
+        <Button
+          full
+          success
+          onPress={() => this.props.navigation.navigate("MealScreen")}
+        >
+          <Text>Add items to cart</Text>
+        </Button>
+
         {cartItems.length ? (
           <Button full danger onPress={this.props.checkoutCart}>
             <Text>Checkout</Text>

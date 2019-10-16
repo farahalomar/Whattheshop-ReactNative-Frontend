@@ -1,54 +1,48 @@
 import * as actionTypes from "../actions/types";
 
 const initialState = {
-  // will be changed !!! I will leave it now ONLY to check ^_^
-  items: [
-    {
-      name: "Machboos",
-      describtion: "Chicken with rice",
-      quantity: 2
-    },
-    {
-      name: "Pasta",
-      describtion: "italian food",
-      quantity: 3
-    }
-  ]
+  items: [],
+  counter: 0,
+  quantity: 1
 };
 
 const CartReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case actionTypes.ADD_ITEM:
       let NewItem = state.items.find(
-        item =>
-          payload.name === item.name && payload.describtion === item.describtion
+        item => payload.name === item.name && payload.price === item.price
       );
-
+      let counter = state.counter + 1;
       if (NewItem) {
         NewItem.quantity += payload.quantity;
         return {
           ...state,
-          items: [...state.items]
+          items: [...state.items],
+          counter: counter
         };
       } else {
         return {
           ...state,
-          items: state.items.concat(payload)
+          items: state.items.concat(payload),
+          counter: counter
         };
       }
 
     case actionTypes.REMOVE_ITEM:
+      let counter2 = state.counter - 1;
       return {
         // removes an item from the cart.
         ...state,
-        items: state.items.filter(item => item !== payload)
+        items: state.items.filter(item => item !== payload),
+        counter: counter2
       };
 
     case actionTypes.CHECKOUT:
       return {
         // empties the cart.
         ...state,
-        items: []
+        items: [],
+        counter: 0
       };
 
     default:

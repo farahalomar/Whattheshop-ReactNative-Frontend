@@ -1,11 +1,11 @@
-import axios from "axios";
+import instance from "./instance";
 import * as actionTypes from "./types";
 
 export const fetchMeals = () => {
   return async dispatch => {
     try {
       //dispatch(setChLoading());
-      const res = await axios.get("http://127.0.0.1:8000/api/meals/");
+      const res = await instance.get("meals/");
       const meals = res.data;
       dispatch({ type: actionTypes.FETCH_MEALS, payload: meals });
     } catch (err) {
