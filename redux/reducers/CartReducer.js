@@ -2,8 +2,7 @@ import * as actionTypes from "../actions/types";
 
 const initialState = {
   items: [],
-  counter: 0,
-  quantity: 1
+  counter: 0
 };
 
 const CartReducer = (state = initialState, { type, payload }) => {
@@ -12,7 +11,7 @@ const CartReducer = (state = initialState, { type, payload }) => {
       let NewItem = state.items.find(
         item => payload.name === item.name && payload.price === item.price
       );
-      let counter = state.counter + 1;
+      let counter = state.counter + payload.quantity;
       if (NewItem) {
         NewItem.quantity += payload.quantity;
         return {
@@ -29,7 +28,7 @@ const CartReducer = (state = initialState, { type, payload }) => {
       }
 
     case actionTypes.REMOVE_ITEM:
-      let counter2 = state.counter - 1;
+      let counter2 = state.counter - payload.quantity;
       return {
         // removes an item from the cart.
         ...state,
