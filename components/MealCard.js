@@ -21,13 +21,36 @@ import { View } from "react-native";
 import { makeDirectoryAsync } from "expo-file-system";
 
 class MealCard extends Component {
-  handlePress = () => {
-    this.props.addItemToCart(this.props.meal);
-    // console.log("here", this.props.meal);
+  state = {
+    name: "",
+    price: 0,
+    img: null,
+    quantity: 1
   };
+  handleAddItem = () => {
+    const Newmeal = {
+      ...this.state
+    };
+    this.props.addItemToCart(Newmeal);
+  };
+  componentDidMount() {
+    const meal = this.props.meal;
+    if (meal) {
+      this.setState({ name: meal.name, price: meal.price, img: meal.img });
+    }
+  }
+  componentDidUpdate(prevState) {
+    if (prevState.meals !== this.props.meals) {
+      const meal = this.props.meal;
+      if (meal) {
+        this.setState({ name: meal.name, price: meal.price, img: meal.img });
+      }
+    }
+  }
 
   render() {
-    const { meal } = this.props;
+    const meal = this.props.meal;
+    console.log("meal", meal);
     return (
       <ListItem button>
         {/* <Card >
@@ -44,7 +67,7 @@ class MealCard extends Component {
           {meal.name}
         </Text>
         <Right>
-          <Button transparent onPress={this.handlePress}>
+          <Button transparent onPress={this.handleAddItem}>
             <Icon name="pluscircleo" type="AntDesign" />
           </Button>
         </Right>

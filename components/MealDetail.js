@@ -16,13 +16,36 @@ import {
 import CartButton from "./CartButton";
 
 class MealDetail extends Component {
+  state = {
+    name: "",
+    price: 0,
+    img: null,
+    quantity: 1
+  };
   handleAddItem = () => {
-    this.props.addItemToCart(this.props.navigation.getParam("meal"));
+    const Newmeal = {
+      ...this.state
+    };
+    this.props.addItemToCart(Newmeal);
   };
   static navigationOptions = {
     title: "Meal List",
     headerRight: <CartButton />
   };
+  componentDidMount() {
+    let meal = this.props.navigation.getParam("meal");
+    if (meal) {
+      this.setState({ name: meal.name, price: meal.price, img: meal.img });
+    }
+  }
+  componentDidUpdate(prevState) {
+    if (prevState.meals !== this.props.meals) {
+      let meal = this.props.navigation.getParam("meal");
+      if (meal) {
+        this.setState({ name: meal.name, price: meal.price, img: meal.img });
+      }
+    }
+  }
   render() {
     const meal = this.props.navigation.getParam("meal");
     console.log("meal: ", meal);

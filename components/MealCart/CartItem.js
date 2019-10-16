@@ -24,9 +24,7 @@ class CartItem extends Component {
           <ListItem style={{ borderBottomWidth: 0 }}>
             <Left>
               <Text style={{ marginLeft: 16 }}> {item.name} </Text>
-              <Text note style={{ marginLeft: 16 }}>
-                {item.description}
-              </Text>
+              <Text style={{ marginLeft: 16 }}> {item.price} KD </Text>
             </Left>
             <Body>
               <Text>{item.quantity}</Text>
