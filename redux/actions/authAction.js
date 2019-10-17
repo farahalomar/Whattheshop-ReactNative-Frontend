@@ -29,7 +29,7 @@ export const checkForExpiredToken = () => {
   };
 };
 
-export const login = (userData, navigation) => {
+export const login = userData => {
   return async dispatch => {
     try {
       let response = await instance.post("login/", userData);
@@ -37,7 +37,6 @@ export const login = (userData, navigation) => {
       let decodedUser = jwt_decode(user.access);
       setAuthToken(user.access);
       await dispatch(setCurrentUser(decodedUser));
-      alert("You loged in !!!");
     } catch (error) {
       console.error(error);
     }

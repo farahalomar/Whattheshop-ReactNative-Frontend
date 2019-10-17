@@ -12,35 +12,36 @@ import styles from "./styles";
 //Action
 import { fetchMeals } from "../../redux/actions/mealsAction";
 
-
 class HomePage extends Component {
-
-  componentDidMount(){
+  componentDidMount() {
     this.props.fetchMeals();
   }
   render() {
-  return (
-    <Container style={styles.transparent}>
-      <View>
-      <Button
-          full
-          success
-          //onPress={() => alert("please!!")}
-          onPress={() => this.props.navigation.push("MealScreen")}
-        ><Text>Meals</Text></Button>
+    return (
+      <Container style={styles.transparent}>
+        <View>
           <Button
-          full
-          warning
-          //onPress={() => alert("please!!")}
-          onPress={() => this.props.navigation.push("LoginScreen")}
-        ><Text>Register</Text></Button>
+            full
+            success
+            //onPress={() => alert("please!!")}
+            onPress={() => this.props.navigation.push("MealScreen")}
+          >
+            <Text>Meals</Text>
+          </Button>
 
-      </View>
-      <Header style={styles.transparent} />
-      
-    </Container>
-  );
-};
+          <Button
+            full
+            warning
+            //onPress={() => alert("please!!")}
+            onPress={() => this.props.navigation.push("LoginScreen")}
+          >
+            <Text>Register</Text>
+          </Button>
+        </View>
+        <Header style={styles.transparent} />
+      </Container>
+    );
+  }
 }
 
 const mapDispatchToProps = dispatch => {
@@ -49,4 +50,7 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(null, mapDispatchToProps)(HomePage);
+export default connect(
+  null,
+  mapDispatchToProps
+)(HomePage);
