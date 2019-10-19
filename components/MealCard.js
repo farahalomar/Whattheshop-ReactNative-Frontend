@@ -22,9 +22,7 @@ import { makeDirectoryAsync } from "expo-file-system";
 
 class MealCard extends Component {
   state = {
-    name: "",
-    price: 0,
-    img: null,
+    meal: this.props.meal.id,
     quantity: 1
   };
   handleAddItem = () => {

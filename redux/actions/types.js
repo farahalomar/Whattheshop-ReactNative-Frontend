@@ -13,3 +13,4 @@ export const FETCH_MEAL_DETAIL = "FETCH_MEAL_DETAIL";
 export const ADD_ITEM = "ADD_ITEM";
 export const REMOVE_ITEM = "REMOVE_ITEM";
 export const CHECKOUT = "CHECKOUT";
+export const POST_ORDER = "POST_ORDER";
