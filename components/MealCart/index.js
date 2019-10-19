@@ -31,7 +31,11 @@ class MealCart extends Component {
         </Button>
 
         {cartItems.length ? (
-          <Button full danger onPress={this.props.checkoutCart}>
+          <Button
+            full
+            danger
+            onPress={() => this.props.checkoutCart(this.props.items)}
+          >
             <Text>Checkout</Text>
           </Button>
         ) : (
@@ -43,7 +47,8 @@ class MealCart extends Component {
 }
 
 const mapStateToProps = state => ({
-  items: state.CartReducer.items
+  items: state.CartReducer.items,
+  user: state.authReducer
 });
 
 const mapDispatchToProps = dispatch => {
