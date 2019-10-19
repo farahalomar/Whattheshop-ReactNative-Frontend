@@ -30,6 +30,8 @@ class SignUp extends Component {
   render() {
     const { username, password } = this.state;
     console.log(this.state);
+    this.props.user ? this.props.navigation.replace("MealScreen") : "";
+
     return (
       <Container>
         <Header />

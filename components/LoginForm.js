@@ -28,10 +28,10 @@ class LoginForm extends Component {
   };
 
   render() {
-    {
-      console.log("user:", this.props.user);
-      this.props.user ? this.props.navigation.navigate("MealScreen") : "";
-    }
+    // {
+    console.log("user:", this.props.user);
+    this.props.user ? this.props.navigation.replace("MealScreen") : "";
+    // }
     const { username, password } = this.state;
     console.log(this.state);
     return (
@@ -64,7 +64,7 @@ class LoginForm extends Component {
               <Text>Login</Text>
             </Button>
             <Text onPress={() => this.props.navigation.push("SignupForm")}>
-              Signup
+              Do not have an acount ?
             </Text>
           </Form>
         </Content>
