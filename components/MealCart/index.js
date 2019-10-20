@@ -9,6 +9,12 @@ import { Text, List, Button } from "native-base";
 import CartItem from "./CartItem";
 
 class MealCart extends Component {
+  handlePress = () => {
+    this.props.user
+      ? this.props.checkoutCart(this.props.items)
+      : this.props.navigation.navigate("LoginScreen");
+  };
+
   render() {
     let items = this.props.items;
     let cartItems;
@@ -31,11 +37,7 @@ class MealCart extends Component {
         </Button>
 
         {cartItems.length ? (
-          <Button
-            full
-            danger
-            onPress={() => this.props.checkoutCart(this.props.items)}
-          >
+          <Button full danger onPress={this.handlePress}>
             <Text>Checkout</Text>
           </Button>
         ) : (
