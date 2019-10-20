@@ -6,7 +6,7 @@ import instance from "./instance";
 const setAuthToken = token => {
   if (token) {
     AsyncStorage.setItem("token", token);
-    instance.defaults.headers.common.Authorization = `jwt ${token}`;
+    instance.defaults.headers.common.Authorization = `Bearer ${token}`;
   } else {
     AsyncStorage.removeItem("token");
     delete instance.defaults.headers.common.Authorization;

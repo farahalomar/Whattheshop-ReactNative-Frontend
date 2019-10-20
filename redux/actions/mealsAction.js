@@ -32,11 +32,9 @@ export const checkoutCart = items => {
   return async dispatch => {
     try {
       let response = await instance.post("checkout/", items);
-      // let order = response.data;
-      // dispatch({
-      //   type: actionTypes.CHECKOUT,
-      //   payload: order
-      // });
+      dispatch({
+        type: actionTypes.CHECKOUT
+      });
     } catch (error) {
       console.error(error);
     }

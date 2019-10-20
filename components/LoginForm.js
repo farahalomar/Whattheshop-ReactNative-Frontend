@@ -30,7 +30,7 @@ class LoginForm extends Component {
   render() {
     {
       console.log("user:", this.props.user);
-      this.props.user ? this.props.navigation.navigate("MealScreen") : "";
+      this.props.user ? this.props.navigation.replace("MealScreen") : "";
     }
     const { username, password } = this.state;
     console.log(this.state);
