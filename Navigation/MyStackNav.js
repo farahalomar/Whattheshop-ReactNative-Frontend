@@ -11,6 +11,7 @@ import MealDetail from "../components/MealDetail";
 // Components
 import HomePage from "../components/HomePage";
 import MealCart from "../components/MealCart";
+import Profile from "../components/Profile";
 
 const MyStackNav = createStackNavigator(
   {
@@ -19,7 +20,8 @@ const MyStackNav = createStackNavigator(
     MealScreen: MealList,
     DetailScreen: MealDetail,
     HomeScreen: HomePage,
-    CartScreen: MealCart
+    CartScreen: MealCart,
+    Profile: Profile
   },
   {
     initialRouteName: "HomeScreen",

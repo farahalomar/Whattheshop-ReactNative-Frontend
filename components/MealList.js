@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 import { fetchMeals } from "../redux/actions/mealsAction";
 
 //NativeBase Components
-import { Button, Icon, Header, Title, Container } from "native-base";
+import { Button, Icon, Header, Title, Container, Text } from "native-base";
 import { View } from "react-native";
 
 //Components
@@ -25,6 +25,11 @@ class MealList extends Component {
     headerRight: <CartButton />
   };
 
+  // handleProfile = () => {
+  //   if (this.props.user) return this.props.navigation.navigate("Profile");
+  //   else return this.props.navigation.navigate("LoginScreen");
+  // };
+
   render() {
     const mealCards = this.props.meals.map(meal => {
       return <MealCard meal={meal} />;
@@ -36,14 +41,20 @@ class MealList extends Component {
         <Header>
           <Title>Meals List</Title>
         </Header>
-        <View>{mealCards}</View>
+        <View>
+          {mealCards}
+          <Text onPress={() => this.props.navigation.navigate("Profile")}>
+            Profile
+          </Text>
+        </View>
       </Container>
     );
   }
 }
 const mapStateToProps = state => {
   return {
-    meals: state.mealsReducer.meals
+    meals: state.mealsReducer.meals,
+    user: state.authReducer
   };
 };
 

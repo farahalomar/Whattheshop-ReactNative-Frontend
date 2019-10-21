@@ -17,9 +17,7 @@ import CartButton from "./CartButton";
 
 class MealDetail extends Component {
   state = {
-    name: "",
-    price: 0,
-    img: null,
+    meal: this.props.navigation.state.params.meal.id,
     quantity: 1
   };
   handleAddItem = () => {
@@ -33,6 +31,8 @@ class MealDetail extends Component {
     headerRight: <CartButton />
   };
   componentDidMount() {
+    console.log("I AM HERE");
+    console.log(this.props);
     let meal = this.props.navigation.getParam("meal");
     if (meal) {
       this.setState({ name: meal.name, price: meal.price, img: meal.img });

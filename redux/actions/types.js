@@ -14,3 +14,6 @@ export const ADD_ITEM = "ADD_ITEM";
 export const REMOVE_ITEM = "REMOVE_ITEM";
 export const CHECKOUT = "CHECKOUT";
 export const POST_ORDER = "POST_ORDER";
+
+// Profile Actions :
+export const FETCH_PROFILE = "FETCH_PROFILE";
