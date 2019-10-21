@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { View, Text } from "react-native";
 
 // NativeBase Components
-import { Container, Header, Button } from "native-base";
+import { Container, Header, Button, Left } from "native-base";
 import AppContainer from "../../Navigation/index";
 import { connect } from "react-redux";
 
@@ -16,6 +16,7 @@ class HomePage extends Component {
   componentDidMount() {
     this.props.fetchMeals();
   }
+
   render() {
     return (
       <Container style={styles.transparent}>

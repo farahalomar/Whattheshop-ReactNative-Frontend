@@ -5,3 +5,4 @@ export {
   removeItemFromCart,
   checkoutCart
 } from "./mealsAction";
+export { fetchProfile } from "./profileAction";
