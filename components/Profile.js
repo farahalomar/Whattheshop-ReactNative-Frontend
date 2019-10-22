@@ -50,21 +50,21 @@ class Profile extends Component {
     return (
       <>
         <Header>
-          <Title>{user.name}'s Profile</Title>
+          <Title>{user.username}'s Profile</Title>
         </Header>
 
         {/* <Text> WHERE IS MY PROFILE : ' ( ???????</Text> */}
 
         <Thumbnail
-          source={{ uri: profile.profilepic }}
+          source={{ uri: profile.pic }}
           style={{ width: 150, height: 150 }}
         />
 
-        <Text>
-          Full Name: {profile.firstname} {profile.lastname}
-        </Text>
+        {/* <Text>
+          Full Name: {profile.first_name} {profile.last_name}
+        </Text> */}
         <Text>Contact Info: {profile.contact}</Text>
-        <Text>e-mail: {profile.email}</Text>
+        {/* <Text>e-mail: {profile.user.email}</Text> */}
         <Text> -------------------------------------- </Text>
         <Text>* Orders History: </Text>
         <View onPress={this.handlePress}>{orderHistory}</View>
