@@ -43,9 +43,13 @@ class MealList extends Component {
         </Header>
         <View>
           {mealCards}
+          {/* {this.props.user ? ( */}
           <Text onPress={() => this.props.navigation.navigate("Profile")}>
             Profile
           </Text>
+          {/* ) : (
+            " "
+          )} */}
         </View>
       </Container>
     );

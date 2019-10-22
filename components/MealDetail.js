@@ -20,16 +20,19 @@ class MealDetail extends Component {
     meal: this.props.navigation.state.params.meal.id,
     quantity: 1
   };
+
   handleAddItem = () => {
     const Newmeal = {
       ...this.state
     };
     this.props.addItemToCart(Newmeal);
   };
+
   static navigationOptions = {
     title: "Meal List",
     headerRight: <CartButton />
   };
+
   componentDidMount() {
     console.log("I AM HERE");
     console.log(this.props);
@@ -38,6 +41,7 @@ class MealDetail extends Component {
       this.setState({ name: meal.name, price: meal.price, img: meal.img });
     }
   }
+
   componentDidUpdate(prevState) {
     if (prevState.meals !== this.props.meals) {
       let meal = this.props.navigation.getParam("meal");
@@ -46,6 +50,7 @@ class MealDetail extends Component {
       }
     }
   }
+
   render() {
     const meal = this.props.navigation.getParam("meal");
     console.log("meal: ", meal);

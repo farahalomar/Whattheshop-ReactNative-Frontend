@@ -3,65 +3,71 @@ import { connect } from "react-redux";
 
 // NativeBase Components :
 import { Container, Header, Title, Text, Thumbnail, Card } from "native-base";
-import { View, Image } from "react-native";
+import { View } from "react-native";
 
 // Actions :
 import { fetchProfile } from "../redux/actions/profileAction";
 
 class Profile extends Component {
   componentDidMount() {
-    this.props.fetchProfile();
+    if (this.props.user) {
+      this.props.fetchProfile();
+    } else {
+      return this.props.navigation.navigate("LoginScreen");
+    }
   }
 
   componentDidUpdate(prevState) {
     if (prevState.user !== this.props.user) this.props.fetchProfile();
   }
 
-  render() {
-    this.props.user ? " " : this.props.navigation.navigate("LoginScreen");
-    // if (this.props.user) return this.props.navigation.navigate("LoginScreen");
+  handlePress = () => {
+    this.props.navigation.navigate(`/profile/${ordersList.id}`);
+    console.log("Hellloooooo !!!");
+  };
 
-    // this.props.loaging ? "true" : " ";
+  render() {
+    if (!this.props.user) {
+      return this.props.navigation.navigate("LoginScreen");
+    }
+
+    this.props.loaging ? "true" : " ";
 
     const profile = this.props.profile;
     const user = this.props.user;
     const ordersList = profile.orders_list;
 
-    // console.log("user:" , user.name);
-    console.log("profile:", profile.orders_list);
     let orderHistory = [];
     if (ordersList) {
       ordersList.forEach(order => {
         orderHistory.push(
-          order.mealorders.map(orderItem => (
-            <Text>
-              (Order ID : {orderItem.meal.id}) -> {orderItem.meal.name}
-            </Text>
-          ))
+          // order.mealorders.map(orderItem => (
+          <Text>Order ID : {order.id}</Text>
+          // ))
         );
       });
     }
     return (
       <>
         <Header>
-          <Title>{user.name}'s Profile</Title>
+          <Title>{user.username}'s Profile</Title>
         </Header>
 
         {/* <Text> WHERE IS MY PROFILE : ' ( ???????</Text> */}
 
         <Thumbnail
-          source={{ uri: profile.profilepic }}
+          source={{ uri: profile.pic }}
           style={{ width: 150, height: 150 }}
         />
 
-        <Text>
-          Full Name: {profile.firstname} {profile.lastname}
-        </Text>
+        {/* <Text>
+          Full Name: {profile.first_name} {profile.last_name}
+        </Text> */}
         <Text>Contact Info: {profile.contact}</Text>
-        <Text>e-mail: {profile.email}</Text>
+        {/* <Text>e-mail: {profile.user.email}</Text> */}
         <Text> -------------------------------------- </Text>
         <Text>* Orders History: </Text>
-        <View>{orderHistory}</View>
+        <View onPress={this.handlePress}>{orderHistory}</View>
       </>
     );
   }
