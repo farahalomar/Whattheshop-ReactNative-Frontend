@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+
+// Remove unused imports
 import { Text, View } from "native-base";
 class Counter extends Component {
   render() {

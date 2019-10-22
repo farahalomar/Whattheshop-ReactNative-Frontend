@@ -12,6 +12,7 @@ import styles from "./styles";
 //Action
 import { fetchMeals } from "../../redux/actions/mealsAction";
 
+// Please remove any commented code
 class HomePage extends Component {
   componentDidMount() {
     this.props.fetchMeals();
