@@ -31,6 +31,7 @@ class MealList extends Component {
   // };
 
   render() {
+    //Add a key to your map
     const mealCards = this.props.meals.map(meal => {
       return <MealCard meal={meal} />;
     });

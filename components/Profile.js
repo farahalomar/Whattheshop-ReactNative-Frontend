@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
+//Clean dead code
+
 // NativeBase Components :
 import { Container, Header, Title, Text, Thumbnail, Card } from "native-base";
 import { View, Image } from "react-native";

@@ -3,6 +3,8 @@ import * as actionCreators from "../redux/actions";
 import { withNavigation } from "react-navigation";
 import { connect } from "react-redux";
 
+// Remove unused imports
+
 //NativeBase Components
 import {
   Text,
