@@ -8,6 +8,7 @@ export const SET_ERRORS = "SET_ERRORS";
 // Meals Actions :
 export const FETCH_MEALS = "FETCH_MEALS";
 export const FETCH_MEAL_DETAIL = "FETCH_MEAL_DETAIL";
+export const FILTER_MEALS = "FILTER_MEALS";
 
 // Cart Actions :
 export const ADD_ITEM = "ADD_ITEM";

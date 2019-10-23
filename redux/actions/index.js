@@ -1,8 +1,9 @@
-export { login, signup, checkForExpiredToken } from "./authAction";
+export { login, signup, logout, checkForExpiredToken } from "./authAction";
 export {
   fetchMeals,
   addItemToCart,
   removeItemFromCart,
-  checkoutCart
+  checkoutCart,
+  filterMeals
 } from "./mealsAction";
 export { fetchProfile } from "./profileAction";
