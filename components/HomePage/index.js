@@ -34,7 +34,7 @@ class HomePage extends Component {
             full
             warning
             //onPress={() => alert("please!!")}
-            onPress={() => this.props.navigation.push("LoginScreen")}
+            onPress={() => this.props.navigation.replace("LoginScreen")}
           >
             <Text>Register</Text>
           </Button>
