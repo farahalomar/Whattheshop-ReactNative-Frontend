@@ -17,6 +17,17 @@ class MealCart extends Component {
     this.props.fetchOrders();
   };
 
+  total = () => {
+    const total = this.props.items.reduce(
+      (acc, item) => acc + item.price * item.quantity,
+      0
+    );
+    if (total) {
+      return total;
+    }
+    return 0;
+  };
+
   render() {
     let items = this.props.items;
     let cartItems;
@@ -30,6 +41,8 @@ class MealCart extends Component {
       <List>
         {cartItems}
 
+        <Text>Total Price: {this.total()}</Text>
+
         <Button
           full
           success
@@ -37,7 +50,6 @@ class MealCart extends Component {
         >
           <Text>Add items to cart</Text>
         </Button>
-
         {cartItems.length ? (
           <Button full danger onPress={this.handlePress}>
             <Text>Checkout</Text>

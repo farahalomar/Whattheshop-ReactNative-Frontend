@@ -65,6 +65,7 @@ export const logout = () => {
   setAuthToken();
   return setCurrentUser();
 };
+
 const setCurrentUser = user => ({
   type: actionTypes.SET_CURRENT_USER,
   payload: user

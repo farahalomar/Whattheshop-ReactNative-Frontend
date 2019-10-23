@@ -1,7 +1,8 @@
-import { FETCH_MEALS } from "../actions/types";
+import { FETCH_MEALS, FILTER_MEALS } from "../actions/types";
 
 const initialState = {
-  meals: []
+  meals: [],
+  filteredMeals: []
 };
 
 export default (state = initialState, action) => {
@@ -9,7 +10,15 @@ export default (state = initialState, action) => {
     case FETCH_MEALS:
       return {
         ...state,
-        meals: action.payload
+        meals: action.payload,
+        filteredMeals: action.payload
+      };
+    case FILTER_MEALS:
+      return {
+        ...state,
+        filteredMeals: state.meals.filter(meal => {
+          return `${meal.name}`.toLowerCase().includes(action.payload);
+        })
       };
     default:
       return state;

@@ -3,16 +3,27 @@ import { connect } from "react-redux";
 import { AppLoading } from "expo";
 
 // NativeBase Components :
-import { Container, Header, Title, Text, Thumbnail, Card } from "native-base";
-import { View } from "react-native";
+
+import {
+  Container,
+  Header,
+  Title,
+  Text,
+  Thumbnail,
+  Card,
+  Right
+} from "native-base";
+import { View, Image } from "react-native";
 
 // Actions :
 import { fetchProfile } from "../redux/actions/profileAction";
+import { logout } from "../redux/actions";
 import { fetchOrders } from "../redux/actions/orderAction";
 
 import Default from "./icon.png";
 class Profile extends Component {
   componentDidMount() {
+
     if (this.props.user) {
       this.props.fetchProfile();
       this.props.fetchOrders();
@@ -27,11 +38,22 @@ class Profile extends Component {
     this.props.fetchOrders();
   }
 
+  handleLogout = () => {
+    // this.props.user
+    //   ? (this.props.logout(), this.props.navigation.navigate("MealScreen"))
+    //   : "";
+
+    this.props.logout();
+    this.props.navigation.replace("MealScreen");
+  };
+
   render() {
+
     if (this.props.loading) return <AppLoading />;
     if (!this.props.user) {
       return this.props.navigation.navigate("LoginScreen");
     }
+
 
     const profile = this.props.profile;
     let orders_list = this.props.profile.orders_list;
@@ -39,10 +61,12 @@ class Profile extends Component {
     let image = profile.pic;
     if (!image) image = Default;
 
+
     let orderHistory = [];
     if (this.props.profile.orders_list) {
       this.props.profile.orders_list.forEach(order => {
         orderHistory.push(
+
           <Text
             onPress={() =>
               this.props.navigation.navigate("Orders", { order: order })
@@ -50,6 +74,7 @@ class Profile extends Component {
           >
             {order.id}
           </Text>
+
         );
       });
     }
@@ -87,7 +112,11 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     fetchProfile: () => dispatch(fetchProfile()),
+
+    logout: () => dispatch(logout())
+
     fetchOrders: () => dispatch(fetchOrders())
+
   };
 };
 
