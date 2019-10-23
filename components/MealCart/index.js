@@ -42,7 +42,6 @@ class MealCart extends Component {
         {cartItems}
 
         <Text>Total Price: {this.total()}</Text>
-
         <Button
           full
           success
