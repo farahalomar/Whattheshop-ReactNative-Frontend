@@ -27,7 +27,7 @@ class Profile extends Component {
       this.props.fetchProfile();
       this.props.fetchOrders();
     } else {
-      return this.props.navigation.navigate("LoginScreen");
+      return this.props.navigation.replace("LoginScreen");
     }
   }
 
@@ -49,7 +49,7 @@ class Profile extends Component {
   render() {
     if (this.props.loading) return <AppLoading />;
     if (!this.props.user) {
-      return this.props.navigation.navigate("LoginScreen");
+      return this.props.navigation.replace("LoginScreen");
     }
 
     const profile = this.props.profile;
