@@ -6,4 +6,4 @@ export {
   checkoutCart
 } from "./mealsAction";
 export { fetchProfile } from "./profileAction";
-export { fetchOrder } from "./orderAction";
+export { fetchOrders } from "./orderAction";

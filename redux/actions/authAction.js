@@ -2,6 +2,8 @@ import jwt_decode from "jwt-decode";
 import { AsyncStorage } from "react-native";
 import * as actionTypes from "./types";
 import instance from "./instance";
+import { fetchProfile } from "./profileAction";
+import { fetchOrders } from "./orderAction";
 
 const setAuthToken = token => {
   if (token) {
@@ -37,6 +39,8 @@ export const login = userData => {
       let decodedUser = jwt_decode(user.access);
       setAuthToken(user.access);
       await dispatch(setCurrentUser(decodedUser));
+      await dispatch(fetchProfile());
+      await dispatch(fetchOrders());
     } catch (error) {
       console.error(error);
     }
@@ -52,10 +56,7 @@ export const signup = userData => {
       setAuthToken(user.access);
       dispatch(setCurrentUser(decodedUser));
     } catch (error) {
-      dispatch({
-        type: actionTypes.SET_ERRORS,
-        payload: error.response.data
-      });
+      console.error(error);
     }
   };
 };

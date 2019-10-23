@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import * as actionCreators from "../../redux/actions/mealsAction";
+import { fetchOrders } from "../../redux/actions/orderAction";
 
 // NativeBase Components
 import { Text, List, Button } from "native-base";
@@ -13,6 +14,7 @@ class MealCart extends Component {
     this.props.user
       ? this.props.checkoutCart(this.props.items)
       : this.props.navigation.navigate("LoginScreen");
+    this.props.fetchOrders();
   };
 
   render() {
@@ -57,6 +59,9 @@ const mapDispatchToProps = dispatch => {
   return {
     checkoutCart: item => {
       dispatch(actionCreators.checkoutCart(item));
+    },
+    fetchOrders: () => {
+      dispatch(fetchOrders());
     }
   };
 };

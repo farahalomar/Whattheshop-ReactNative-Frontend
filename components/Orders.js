@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Container, Text, Thumbnail } from "native-base";
 import { connect } from "react-redux";
+import { AppLoading } from "expo";
 
 // Navigations
 // import { withNavigation } from "react-navigation";
@@ -19,55 +20,31 @@ class Orders extends Component {
 
   componentDidMount() {
     let order = this.props.navigation.getParam("order");
-    if (order) {
-      this.setState({
-        name: order.name,
-        price: order.price,
-        description: order.description,
-        quantity: order.quantity,
-        img: order.img
-      });
-    }
-  }
-
-  componentDidUpdate(prevState) {
-    if (prevState.orders !== this.props.orders) {
-      // let order = this.props.navigation.getParam("order");
-      let order = this.props.orders.find(order => order.id == orderID);
-      if (order) {
-        this.setState({
-          name: order.name,
-          price: order.price,
-          description: order.description,
-          quantity: order.quantity,
-          img: order.img
-        });
-      }
-    }
   }
 
   render() {
+    if (this.props.loading) return <AppLoading />;
     const order = this.props.navigation.getParam("order");
 
-    return (
-      <Container>
-        <Thumbnail
-          source={{ uri: order.mealorders.meal.img }}
-          style={{ width: 150, height: 150 }}
+    const meals = order.mealorders.map(meal => (
+      <div>
+        <Text>Meal Name: {meal.meal.name}</Text>
+        <img
+          src={meal.meal.img}
+          className="img-thumbnail img-fluid"
+          alt={meal.meal.name}
         />
-        <Text>Meal Name: {order.mealorders.meal.name}</Text>
-        <Text>Price: {order.mealorders.meal.price}</Text>
-        <Text>Description: {order.mealorders.meal.description}</Text>
-        <Text>Quantity: {order.mealorders.quantity}</Text>
-      </Container>
-    );
+        <br></br>
+        <Text>Price:{meal.meal.price} KD</Text>
+        <br></br>
+        <Text>Description: {meal.meal.description}</Text>
+        <br></br>
+        <Text>Quantity: {meal.quantity}</Text>
+      </div>
+    ));
+
+    return <Container>{meals}</Container>;
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    orders: state.orderReducer.orders
-  };
-};
-
-export default connect(mapStateToProps)(Orders);
+export default Orders;
