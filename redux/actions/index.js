@@ -7,3 +7,4 @@ export {
   filterMeals
 } from "./mealsAction";
 export { fetchProfile } from "./profileAction";
+export { fetchOrders } from "./orderAction";

@@ -48,6 +48,7 @@ class MealList extends Component {
   render() {
     const mealCards = this.props.filteredMeals.map(meal => {
       return <MealCard meal={meal} />;
+
     });
     console.log("in list", this.props.meals);
 
@@ -59,9 +60,13 @@ class MealList extends Component {
         <View>
           <Search filter={this.filterMeals} />
           {mealCards}
+          {/* {this.props.user ? ( */}
           <Text onPress={() => this.props.navigation.navigate("Profile")}>
             Profile
           </Text>
+          {/* ) : (
+            " "
+          )} */}
         </View>
       </Container>
     );
