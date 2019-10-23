@@ -32,7 +32,7 @@ class MealList extends Component {
 
   render() {
     const mealCards = this.props.meals.map(meal => {
-      return <MealCard meal={meal} />;
+      return <MealCard key={meal.id} meal={meal} />;
     });
     console.log("in list", this.props.meals);
 

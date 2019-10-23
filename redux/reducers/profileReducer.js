@@ -1,7 +1,7 @@
 import { FETCH_PROFILE } from "../actions/types";
 
 const initialState = {
-  profile: [],
+  profile: null,
   loading: true
 };
 

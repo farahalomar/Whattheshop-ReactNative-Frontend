@@ -1,7 +1,7 @@
 import instance from "./instance";
 import * as actionTypes from "./types";
 
-export const fetchOrder = () => {
+export const fetchOrders = () => {
   return async dispatch => {
     try {
       const res = await instance.get("profile/");
