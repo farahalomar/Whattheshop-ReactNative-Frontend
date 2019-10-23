@@ -23,7 +23,6 @@ import { fetchOrders } from "../redux/actions/orderAction";
 import Default from "./icon.png";
 class Profile extends Component {
   componentDidMount() {
-
     if (this.props.user) {
       this.props.fetchProfile();
       this.props.fetchOrders();
@@ -48,12 +47,10 @@ class Profile extends Component {
   };
 
   render() {
-
     if (this.props.loading) return <AppLoading />;
     if (!this.props.user) {
       return this.props.navigation.navigate("LoginScreen");
     }
-
 
     const profile = this.props.profile;
     let orders_list = this.props.profile.orders_list;
@@ -61,12 +58,10 @@ class Profile extends Component {
     let image = profile.pic;
     if (!image) image = Default;
 
-
     let orderHistory = [];
     if (this.props.profile.orders_list) {
       this.props.profile.orders_list.forEach(order => {
         orderHistory.push(
-
           <Text
             onPress={() =>
               this.props.navigation.navigate("Orders", { order: order })
@@ -74,7 +69,6 @@ class Profile extends Component {
           >
             {order.id}
           </Text>
-
         );
       });
     }
@@ -82,7 +76,10 @@ class Profile extends Component {
     return (
       <>
         <Header>
-          <Title>{this.props.profile.user.username}'s Profile</Title>
+          <Title>{user.name}'s Profile</Title>
+          <Right>
+            <Text onPress={this.handleLogout}>Logout</Text>
+          </Right>
         </Header>
 
         <Thumbnail source={image} style={{ width: 150, height: 150 }} />
@@ -113,10 +110,9 @@ const mapDispatchToProps = dispatch => {
   return {
     fetchProfile: () => dispatch(fetchProfile()),
 
-    logout: () => dispatch(logout())
+    logout: () => dispatch(logout()),
 
     fetchOrders: () => dispatch(fetchOrders())
-
   };
 };
 
