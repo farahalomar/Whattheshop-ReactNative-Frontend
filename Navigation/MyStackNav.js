@@ -12,6 +12,7 @@ import MealDetail from "../components/MealDetail";
 import HomePage from "../components/HomePage";
 import MealCart from "../components/MealCart";
 import Profile from "../components/Profile";
+import ProfileForm from "../components/ProfileForm";
 import Orders from "../components/Orders";
 
 const MyStackNav = createStackNavigator(
@@ -23,6 +24,7 @@ const MyStackNav = createStackNavigator(
     HomeScreen: HomePage,
     CartScreen: MealCart,
     Profile: Profile,
+    ProfileForm: ProfileForm,
     Orders: Orders
   },
   {

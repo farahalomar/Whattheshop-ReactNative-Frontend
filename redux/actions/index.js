@@ -6,5 +6,5 @@ export {
   checkoutCart,
   filterMeals
 } from "./mealsAction";
-export { fetchProfile } from "./profileAction";
+export { fetchProfile, updateProfile } from "./profileAction";
 export { fetchOrders } from "./orderAction";

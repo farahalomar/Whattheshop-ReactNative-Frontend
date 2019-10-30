@@ -11,7 +11,8 @@ import {
   Text,
   Thumbnail,
   Card,
-  Right
+  Right,
+  Button
 } from "native-base";
 import { View, Image } from "react-native";
 
@@ -77,6 +78,10 @@ class Profile extends Component {
       <>
         <Header>
           <Title>{user.name}'s Profile</Title>
+          <Button
+            success
+            onPress={() => this.props.navigation.push("ProfileForm")}
+          ></Button>
           <Right>
             <Text onPress={this.handleLogout}>Logout</Text>
           </Right>

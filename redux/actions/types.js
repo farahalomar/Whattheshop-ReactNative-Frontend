@@ -18,6 +18,7 @@ export const POST_ORDER = "POST_ORDER";
 
 // Profile Actions :
 export const FETCH_PROFILE = "FETCH_PROFILE";
+export const UPDATE_PROFILE = "UPDATE_PROFILE";
 
 // Orders Actions :
 export const FETCH_ORDER = "FETCH_ORDER";
